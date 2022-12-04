@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>FORCE</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', path='/curves.css')}}" >
+{% endblock %}
+
+{% block content %}
+<style>
+    .coordinates {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        padding: 5px 10px;
+        margin: 0;
+        font-size: 11px;
+        line-height: 18px;
+        border-radius: 3px;
+        display: none;
+    }
+
+    .map-container {
+	verticle-align: middle;
+	position: absolute;
+    }
+</style>
+
+<div id="map"></div>
+<pre id="coordinates" class="coordinates"></pre>
+<button id="send_coords" onclick="confirmClick();">Confirm</button>
+
+<script type="text/javascript" src="{{ url_for('static', path='/xsec.js')}}" ></script>
+<script type="text/javascript" src="{{ url_for('static', path='/mapboxgl.js')}}" ></script>
+
+{% endblock %}
